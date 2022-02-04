@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="styles/newConnection.css" rel="stylesheet" type="text/css">
+    <title>Console Clash</title>
+</head>
+
+<body>
+    <nav class="align-right">
+        <a href="newConnection.html">Start a New Connection</a> ∙
+        <a href="">Login</a> ∙
+        <a href="">Sign Up</a>
+    </nav>
+    <header>
+        <figure>
+            <a href="index.html"><img src="images/logo.png" width="400" height="120" alt="Console Clash Logo"></a>
+        </figure>
+    </header>
+    <nav>
+        <a href="connections.html">Connections</a>
+        <br><br>
+    </nav>
+    <main>
+        <h1>Create a New Connection</h1>
+        <form action="connections.html">
+            <label>Game Type:
+                <select name="Game Type">
+                    <option value="Sports">Sports</option>
+                    <option value="Racing">Racing</option>
+                </select>
+            </label><br>
+            <label>Title: <input type="text" name="Title" size="20" required="required"></label><br>
+            <label>Host: <input type="text" name="Host" size="20" required="required"> </label><br>
+            <label>Details: <br><textarea name="description" cols="23" rows="4">Description</textarea></label><br>
+            <label>Location: <input type="text" name="location" size="16" required="required"></label><br>
+            <label>Date: <input type="date" name="date"></label><br>
+            <label>Start Time: <input type="time" name="start"></label><br>
+            <label>End Time: <input type="time" name="end"></label><br>
+            <label>Image URL: <input type="url" name="imgURL" size="13"></label><br><br>
+            <input type="submit" value="New Connection" class="button">
+        </form>
+    </main>
+    <br><br><br><br><br><br><br><br><br>
+    <footer>
+        <nav>
+            <a href="">About</a> ∙
+            <a href="">Contact</a>
+        </nav>
+        <p>© Console Clash | Page built by MC Solutions </p>
+    </footer>
+</body>
+
+</html>
