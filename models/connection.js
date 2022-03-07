@@ -1,4 +1,3 @@
-const { DateTime } = require('luxon');
 const { v4: uuidv4 } = require('uuid');
 const connections = [{
     id: '1',
@@ -76,16 +75,16 @@ const connections = [{
 
 exports.find = () => connections;
 
-exports.findById = function (id) {
+exports.findById = (id) => {
     return connections.find(connection => connection.id === id);
 }
 
-exports.save = function (connection) {
+exports.save = (connection) => {
     connection.id = uuidv4();
     connections.push(connection);
 }
 
-exports.updateById = function (id, newConnection) {
+exports.updateById = (id, newConnection) => {
     let connection = exports.findById(id);
     if (connection) {
         connection.name = newConnection.name;
@@ -103,7 +102,7 @@ exports.updateById = function (id, newConnection) {
     }
 }
 
-exports.deleteById = function (id) {
+exports.deleteById = (id) => {
     let index = connections.findIndex(connection => connection.id === id);
     if (index != -1) {
         connections.splice(index, 1);
