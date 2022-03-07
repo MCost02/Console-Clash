@@ -1,0 +1,24 @@
+<%- include('../partials/header.ejs')%>
+    <link href="/styles/newConnection.css" rel="stylesheet" type="text/css">
+    <main>
+        <h1>Create a New Connection</h1>
+        <form action="/connections" method='POST'>
+            <label>Game Type:
+                <select name="topic">
+                    <option value="Sports">Sports</option>
+                    <option value="Racing">Racing</option>
+                </select>
+            </label><br>
+            <label>Title: <input type="text" name="name" size="20" required="required"></label><br>
+            <label>Host: <input type="text" name="host" size="20" required="required"> </label><br>
+            <label>Details: <br><textarea name="details" cols="23" rows="4"></textarea></label><br>
+            <label>Location: <input type="text" name="location" size="16" required="required"></label><br>
+            <label>Date: <input type="date" name="date"></label><br>
+            <label>Start Time: <input type="time" name="startTime"></label><br>
+            <label>End Time: <input type="time" name="endTime"></label><br>
+            <label>Image URL: <input type="text" name="image" size="13"></label><br><br>
+            <input type="submit" value="Create" class="button">
+        </form>
+    </main>
+    <br><br><br><br><br><br><br><br><br>
+    <%- include('../partials/footer.ejs')%>

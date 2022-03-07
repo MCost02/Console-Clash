@@ -7,20 +7,18 @@ body {
 
 main {
     background-color: #ffffff;
-    padding: 1em 1em 1em 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
     border-radius: 15px;
-    margin-left: 2em;
-    margin-right: 2em;
     text-align: left;
-    
 }
 
-h1 {
+main h1 {
     text-align: center;
 }
 
-form {
-    padding-left: 40%;
+h2{
+    margin-left: 1em;
 }
 
 a {
@@ -37,11 +35,12 @@ a:hover{
     text-align:right;
 }
 
-.button {
-  font-size: .8em;
-  padding: 5px 10px;
-  margin-left: 5%;
-  border:none;
-  color: white;
-  background-color: black;
+ul {
+    list-style: none;
+    padding-top: -200px;
+}
+
+li {
+    padding-bottom: .5em;
+    margin-left: 1em;
 }

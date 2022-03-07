@@ -1,0 +1,45 @@
+<%- include('../partials/header.ejs')%>
+    <link href="/styles/connection.css" rel="stylesheet" type="text/css">
+    <main>
+        <h1>
+            <%=connection.name%>
+        </h1>
+        <div class="container">
+            <div class="image">
+                <% if(connection.image){%><img src=<%=connection.image%>><%}%>
+            </div>
+            <div>
+                <p>
+                    <b>Host:</b>
+                    <%=connection.host%>
+                </p>
+                <p>
+                    <b>Date:</b>
+                    <%=connection.date%>
+                </p>
+                <p>
+                    <b>Start Time:</b>
+                    <%=connection.startTime%>
+                </p>
+                <p>
+                    <b>End Time:</b>
+                    <%=connection.endTime%>
+                </p>
+                <p>
+                    <b>Location:</b>
+                    <%=connection.location%>
+                </p>
+                <p>
+                    <b>Description:</b>
+                    <%=connection.details%>
+                </p>
+            </div>
+        </div>
+        <form class="align-right">
+            <button type="submit" formmethod="GET" formaction="/connections/<%=connection.id%>/edit">Update</button>
+            <button type="submit" formmethod="POST"
+                formaction="/connections/<%=connection.id%>?_method=DELETE">Delete</button>
+        </form>
+    </main>
+    <br><br><br><br><br><br><br><br><br><br>
+    <%- include('../partials/footer.ejs')%>

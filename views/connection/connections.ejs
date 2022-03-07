@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs')%>
+    <link href="/styles/connections.css" rel="stylesheet" type="text/css">
+    <main>
+        <% if(connections.length){ %>
+            <h1>Select an event to learn more!</h1>
+            <h2>Sports</h2>
+            <%connections.forEach(connection=>{%>
+                <% if(connection.topic==='Sports' ){ %>
+                    <a href="/connections/<%=connection.id%>">
+                        <p>
+                            <%= connection.name %>
+                        </p>
+                    </a>
+                    <%}%>
+                        <%})%>
+                            <h2>Racing</h2>
+                            <%connections.forEach(connection=>{%>
+                                <% if(connection.topic==='Racing' ){ %>
+                                    <a href="/connections/<%=connection.id%>">
+                                        <p>
+                                            <%= connection.name %>
+                                        </p>
+                                    </a>
+                                    <%}%>
+                                        <%})%>
+                                            <%} else{%>
+                                                <p>There are no connections to display</p>
+                                                <%}%>
+    </main>
+    <br><br><br><br><br><br><br>
+    <%- include('../partials/footer.ejs')%>

@@ -25,15 +25,15 @@ a:hover{
     text-decoration: underline;
 }
 
-.align-right{
-    text-align:right;
-}
-
-.button {
+button {
   text-align: center;
   border:none;
   color: white;
   background-color: black;  
+}
+
+.align-right{
+    text-align:right;
 }
 
 .container {
@@ -44,9 +44,6 @@ a:hover{
 }
 
 .image {
-  flex-basis: 20%
-}
-
-.event-info {
-  padding-top: 1em;
+  flex-basis: 10%;
+  padding-top: .5em;
 }
