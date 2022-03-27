@@ -20,10 +20,6 @@ app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 
 //set up routes
-app.get('/', (req, res) => {
-    res.render('index');
-})
-
 app.use('/connections', connectionRoutes);
 app.use('/', mainRoutes);
 
