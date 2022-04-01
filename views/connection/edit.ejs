@@ -7,16 +7,16 @@
                     <option value="Sports">Sports</option>
                     <option value="Racing">Racing</option>
                 </select></label><br>
-            <label>Title: <input type="text" name="name" value="<%= connection.name%>" required="required"></label><br>
-            <label>Host: <input type="text" name="host" value="<%- connection.host%>" required="required"> </label><br>
-            <label>Details: <br><textarea name="details" cols="20" rows="4"><%= connection.details%></textarea></label>
+            <label>Title: <input type="text" name="title" value="<%= connection.title%>" required></label><br>
+            <label>Host: <input type="text" name="host" value="<%= connection.host%>" required> </label><br>
+            <label>Details: <br><textarea name="details" cols="20" rows="4"
+                    required><%= connection.details%></textarea></label>
             <br>
-            <label>Location: <input type="text" name="location" value="<%= connection.location%>"
-                    required="required"></label><br>
-            <label>When: <input type="date" name="date" value="<%= connection.date%>"></label><br>
-            <label>Start: <input type="time" name="startTime" value="<% connection.startTime%>"></label><br>
-            <label>End: <input type="time" name="endTime" value="<%- connection.endTime%>"></label><br>
-            <label>Image URL: <input type="text" name="image" value="<%= connection.image%>"></label><br><br>
+            <label>Location: <input type="text" name="location" value="<%= connection.location%>" required></label><br>
+            <label>When: <input type="date" name="date" value="<%= connection.date%>" required></label><br>
+            <label>Start: <input type="time" name="startTime" value="<%= connection.startTime%>" required></label><br>
+            <label>End: <input type="time" name="endTime" value="<%= connection.endTime%>" required></label><br>
+            <label>Image URL: <input type="text" name="image" value="<%= connection.image%>" required></label><br><br>
             <input type="submit" value="Save" class="button">
         </form>
     </main>

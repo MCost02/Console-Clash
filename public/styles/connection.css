@@ -43,7 +43,9 @@ button {
   padding-left: 3em;
 }
 
-.image {
+.image{
   flex-basis: 10%;
   padding-top: .5em;
+  max-height: 225px;
+  max-width: 150px;
 }
