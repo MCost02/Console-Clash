@@ -10,8 +10,10 @@
 <body>
     <nav class="align-right">
         <a href="/connections/new">Start a New Connection</a> ∙
-        <a href="">Login</a> ∙
-        <a href="">Sign Up</a>
+        <a href='/users/new'>Sign Up</a> ∙
+        <a href='/users/login'>Login</a> ∙
+        <a href='/users/profile'>Profile</a> ∙
+        <a href='/users/logout'>Logout</a>
     </nav>
     <header>
         <figure>
@@ -22,3 +24,17 @@
         <a href="/connections">Connections</a>
         <br><br>
     </nav>
+
+    <%if(errorMessages.length> 0){
+        errorMessages.forEach(message => {%>
+        <div class='error'>
+            <%=message%>
+        </div>
+        <% }); } %>
+
+            <%if(successMessages.length> 0){
+                successMessages.forEach(message => {%>
+                <div class='success'>
+                    <%=message%>
+                </div>
+                <% }); } %>

@@ -10,7 +10,7 @@ const connectionSchema = new Schema({
     date: { type: String, required: [true, 'Date is required'] },
     startTime: { type: String, required: [true, 'Start time is required'] },
     endTime: { type: String, required: [true, 'End time is required'] },
-    image: { type: String, required: [true, 'Image is required'] }
+    image: { type: String, required: [true, 'Image is required'] },
 });
 
 module.exports = mongoose.model('Connection', connectionSchema);

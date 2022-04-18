@@ -2,7 +2,7 @@ body {
     background-color: #c7c7c7;
     text-align: center;
     margin-left: 400px;
-	margin-right: 400px;
+    margin-right: 400px;
 }
 
 main {
@@ -13,6 +13,7 @@ main {
     margin-left: 2em;
     margin-right: 2em;
 }
+
 main p {
     margin-left: 5em;
     margin-right: 5em;
@@ -20,15 +21,46 @@ main p {
 }
 
 a {
-    color:black;
+    color: black;
     text-decoration: none;
     font-size: 1.2em;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
 }
 
-.align-right{
-    text-align:right;
+.align-right {
+    text-align: right;
+}
+
+.button {
+    font-size: .8em;
+    padding: 5px 10px;
+    margin-left: 10%;
+    border: none;
+    color: white;
+    background-color: black;
+}
+
+.success {
+    background: green;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 20px;
+    margin-left: 2em;
+    margin-right: 2em;
+    border-radius: 15px;
+}
+
+.error {
+    background: orangered;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 20px;
+    margin-left: 2em;
+    margin-right: 2em;
+    border-radius: 15px;
 }
