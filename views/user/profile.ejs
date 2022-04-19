@@ -2,6 +2,17 @@
     <main>
         <h2>Welcome, <%=user.firstName + " " + user.lastName%>
         </h2>
+        <%if(connections.length){%>
+            <p>You have created the following connections</p>
+            <%connections.forEach(connection=> {%>
+                <a href='/connections/<%=connection.id%>'>
+                    <p>
+                        <%=connection.title%>
+                    </p>
+                </a>
+                <%}); } else {%>
+                    <p>You have not created any connections</p>
+                    <%}%>
     </main>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <%- include('../partials/footer.ejs')%>

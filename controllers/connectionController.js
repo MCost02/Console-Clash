@@ -12,8 +12,9 @@ exports.new = (req, res) => {
 
 exports.create = (req, res, next) => {
     let connection = new model(req.body);
+    connection.host = req.session.user;
     connection.save()
-        .then((story) => res.redirect('/connections'))
+        .then(connection => res.redirect('/connections'))
         .catch(err => {
             if (err.name === 'ValidationError') {
                 err.status = 400;
@@ -29,10 +30,11 @@ exports.show = (req, res, next) => {
         err.status = 400;
         return next(err);
     }
-    model.findById(id)
+    model.findById(id).populate('host', 'firstName lastName')
         .then(connection => {
             if (connection) {
-                res.render('./connection/connection', { connection });
+                console.log(connection);
+                return res.render('./connection/connection', { connection });
             } else {
                 let err = new Error('Cannot find a connection with id ' + id);
                 err.status = 404;
