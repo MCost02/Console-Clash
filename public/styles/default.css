@@ -64,3 +64,9 @@ a:hover {
     margin-right: 2em;
     border-radius: 15px;
 }
+
+.welcome-message {
+    text-align: left;
+    float: left;
+    font-size: 1.2em;
+}

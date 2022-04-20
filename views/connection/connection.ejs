@@ -35,11 +35,13 @@
                 </p>
             </div>
         </div>
-        <form class="align-right">
-            <button type="submit" formmethod="GET" formaction="/connections/<%=connection.id%>/edit">Update</button>
-            <button type="submit" formmethod="POST"
-                formaction="/connections/<%=connection.id%>?_method=DELETE">Delete</button>
-        </form>
+        <%if(user==connection.host._id){%>
+            <form class="align-right">
+                <button type="submit" formmethod="GET" formaction="/connections/<%=connection.id%>/edit">Update</button>
+                <button type="submit" formmethod="POST"
+                    formaction="/connections/<%=connection.id%>?_method=DELETE">Delete</button>
+            </form>
+            <%}%>
     </main>
     <br><br><br><br><br><br><br><br><br><br>
     <%- include('../partials/footer.ejs')%>

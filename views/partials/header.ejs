@@ -9,12 +9,20 @@
 
 <body>
     <nav class="align-right">
-        <a href="/connections/new">Start a New Connection</a> ∙
-        <a href='/users/new'>Sign Up</a> ∙
-        <a href='/users/login'>Login</a> ∙
-        <a href='/users/profile'>Profile</a> ∙
-        <a href='/users/logout'>Logout</a>
+        <%if(!user){%>
+            <br>
+            <a href='/users/new'>Sign Up</a> ∙
+            <a href='/users/login'>Login</a>
+            <%} else{%>
+                <p class="welcome-message"> Welcome, <%=user.firstName + "!" %>
+                </p><br>
+                <a href="/connections/new">Start a New Connection</a> ∙
+                <a href='/users/profile'>Profile</a> ∙
+                <a href='/users/logout'>Logout</a>
+                <%}%>
+
     </nav>
+    <br>
     <header>
         <figure>
             <a href="/"><img src="/images/logo.png" width="400" height="120" alt="Console Clash Logo"></a>
