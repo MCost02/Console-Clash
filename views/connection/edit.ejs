@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs')%>
     <link href="/styles/newConnection.css" rel="stylesheet" type="text/css">
     <main>
-        <h1>Edit Event</h1>
+        <h1>Update Connection</h1>
         <form action="/connections/<%= connection.id%>?_method=PUT" method="POST">
             <label>Game Type: <select id="topic" name="topic">
                     <option value="Sports">Sports</option>
