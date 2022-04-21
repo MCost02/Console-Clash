@@ -70,3 +70,26 @@ a:hover {
     float: left;
     font-size: 1.2em;
 }
+
+table,
+tr,
+td,
+th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 2px;
+}
+
+table {
+    margin-left: 5em;
+    width: 75%;
+}
+
+table .button {
+    margin-left: 1px;
+}
+
+th {
+    text-align: center;
+    font-size: 1.1em;
+}

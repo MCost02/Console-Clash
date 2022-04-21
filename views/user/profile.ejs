@@ -1,18 +1,40 @@
 <%- include('../partials/header.ejs')%>
     <main>
-        <h2>Welcome, <%=user.firstName + " " + user.lastName%>
+        <h2>
+            <%=user.firstName + "'s Connections" %>
         </h2>
-        <%if(connections.length){%>
-            <p>You have created the following connections</p>
-            <%connections.forEach(connection=> {%>
-                <a href='/connections/<%=connection.id%>'>
-                    <p>
-                        <%=connection.title%>
-                    </p>
-                </a>
-                <%}); } else {%>
-                    <p>You have not created any connections</p>
-                    <%}%>
+        <table>
+            <%if(connections.length){%>
+                <thead>
+                    <th>Connection</th>
+                    <th>Topic</th>
+                    <th>Actions</th>
+                </thead>
+                <%connections.forEach(connection=> {%>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href='/connections/<%=connection.id%>'>
+                                    <%=connection.title%>
+                                </a>
+                            </td>
+                            <td>
+                                <%=connection.topic%>
+                            </td>
+                            <td>
+                                <form>
+                                    <button type="submit" formmethod="GET" class="button"
+                                        formaction="/connections/<%=connection.id%>/edit">Update</button>
+                                    <button type="submit" formmethod="POST" class="button"
+                                        formaction="/connections/<%=connection.id%>?_method=DELETE">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <%}); } else {%>
+                        <p>You have not created any connections</p>
+                        <%}%>
+        </table>
     </main>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <%- include('../partials/footer.ejs')%>
