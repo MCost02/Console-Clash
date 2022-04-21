@@ -14,12 +14,16 @@ exports.create = (req, res, next) => {
     let connection = new model(req.body);
     connection.host = req.session.user;
     connection.save()
-        .then(connection => res.redirect('/connections'))
+        .then(connection => {
+            req.flash('success', 'Connection has been created successfully');
+            res.redirect('/connections');
+        })
         .catch(err => {
             if (err.name === 'ValidationError') {
-                err.status = 400;
+                req.flash('error', err.message);
+                return res.redirect('/back');
             }
-            next(err)
+            next(err);
         });
 };
 
@@ -76,19 +80,14 @@ exports.update = (req, res, next) => {
 
     model.findByIdAndUpdate(id, connection, { runValidators: true })
         .then(connection => {
-            if (connection) {
-                res.redirect('/connections/' + id);
-            } else {
-                let err = new Error('Cannot find a connection with id ' + id);
-                err.status = 404;
-                next(err);
-            }
+            return res.redirect('/connections/' + id);
         })
         .catch(err => {
             if (err.name === 'ValidationError') {
-                err.status = 400;
+                req.flash('error', err.message);
+                return res.redirect('/back');
             }
-            next(err)
+            next(err);
         });
 };
 

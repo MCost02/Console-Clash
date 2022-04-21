@@ -8,16 +8,19 @@ exports.new = (req, res) => {
 exports.create = (req, res, next) => {
     let user = new model(req.body);
     user.save()
-        .then(user => res.redirect('./users/login'))
+        .then(user => {
+            req.flash('success', 'Registration succeeded!');
+            res.redirect('/users/login');
+        })
         .catch(err => {
             if (err.name === 'ValidationError') {
                 req.flash('error', err.message);
-                return res.redirect('users/new');
+                return res.redirect('back');
             }
 
             if (err.code === 11000) {
-                req.flash('error', 'Email address has been used');
-                return res.redirect('users/new');
+                req.flash('error', 'Email has been used');
+                return res.redirect('back');
             }
             next(err);
         });
