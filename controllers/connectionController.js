@@ -29,11 +29,6 @@ exports.create = (req, res, next) => {
 
 exports.show = (req, res, next) => {
     let id = req.params.id;
-    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-        let err = new Error('Invalid connection id');
-        err.status = 400;
-        return next(err);
-    }
     model.findById(id).populate('host', 'firstName lastName')
         .then(connection => {
             if (connection) {
@@ -50,11 +45,6 @@ exports.show = (req, res, next) => {
 
 exports.edit = (req, res, next) => {
     let id = req.params.id;
-    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-        let err = new Error('Invalid connection id');
-        err.status = 400;
-        return next(err);
-    }
     model.findById(id)
         .then(connection => {
             if (connection) {
@@ -71,13 +61,6 @@ exports.edit = (req, res, next) => {
 exports.update = (req, res, next) => {
     let connection = req.body;
     let id = req.params.id;
-
-    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-        let err = new Error('Invalid connection id');
-        err.status = 400;
-        return next(err);
-    }
-
     model.findByIdAndUpdate(id, connection, { runValidators: true })
         .then(connection => {
             return res.redirect('/connections/' + id);
@@ -93,13 +76,6 @@ exports.update = (req, res, next) => {
 
 exports.delete = (req, res, next) => {
     let id = req.params.id;
-
-    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-        let err = new Error('Invalid connection id');
-        err.status = 400;
-        return next(err);
-    }
-
     model.findByIdAndDelete(id)
         .then(connection => {
             if (connection) {
