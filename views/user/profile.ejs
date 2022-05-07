@@ -35,6 +35,32 @@
                         <p>You have not created any connections</p>
                         <%}%>
         </table>
+        <%if(rsvps.length) {%>
+            <h2>
+                <%=user.firstName%>'s RSVPs
+            </h2>
+            <table>
+                <thead>
+                    <th>Connection</th>
+                    <th>Category</th>
+                    <th>Attending</th>
+                </thead>
+                <%rsvps.forEach(rsvp=>{%>
+                    <tr>
+                        <td><a <%=rsvp.connection.title%>
+                            </a></td>
+                        <td><a href="/connections">
+                                <%=rsvp.connection.topic%>
+                            </a></td>
+                        <td>
+                            <%=rsvp.status%>
+                        </td>
+                    </tr>
+                    <%});%>
+            </table>
+            <%} else {%>
+                <p class="align-center">You have not RSVP'd for any connections.</p>
+                <%}%>
     </main>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <%- include('../partials/footer.ejs')%>

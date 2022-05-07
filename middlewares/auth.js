@@ -46,3 +46,25 @@ exports.isHost = (req, res, next) => {
         })
         .catch(err => next(err));
 }
+
+//check if user is not the creator of the connection
+exports.isNotHost = (req, res, next) => {
+    let id = req.params.id;
+    Connection.findById(id)
+        .then(connection => {
+            if (connection) {
+                if (connection.host == req.session.user) {
+                    let err = new Error('Unauthorized to access the resource');
+                    err.status = 401;
+                    return next(err);
+                } else {
+                    return next();
+                }
+            } else {
+                let err = new Error('Cannot find a connection with id ' + req.params.id);
+                err.status = 404;
+                return next(err);
+            }
+        })
+        .catch(err => next(err));
+};

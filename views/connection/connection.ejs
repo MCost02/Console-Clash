@@ -34,6 +34,18 @@
                     <%=connection.details%>
                 </p>
             </div>
+
+            <div>
+                <% if(rsvps.length==1) { %>
+                    <h3>
+                        <%= rsvps.length %> member RSVP'd
+                    </h3>
+                    <% } else { %>
+                        <h3>
+                            <%= rsvps.length %> members RSVP'd
+                        </h3>
+                        <% } %>
+            </div>
         </div>
         <%if(user==connection.host._id){%>
             <form class="align-right">
@@ -41,7 +53,17 @@
                 <button type="submit" formmethod="POST"
                     formaction="/connections/<%=connection.id%>?_method=DELETE">Delete</button>
             </form>
-            <%}%>
+            <%} else {%>
+                <p class="align-right">RSVP to attend!</p>
+                <form class="align-right">
+                    <button name="status" type="submit" formmethod="POST"
+                        formaction="/connections/<%=connection.id%>/rsvp" value="yes">Yes</button>
+                    <button name="status" type="submit" formmethod="POST"
+                        formaction="/connections/<%=connection.id%>/rsvp" value="maybe">Maybe</button>
+                    <button name="status" type="submit" formmethod="POST"
+                        formaction="/connections/<%=connection.id%>/rsvp" value="no">No</button>
+                </form>
+                <%}%>
     </main>
     <br><br><br><br><br><br><br><br><br><br>
     <%- include('../partials/footer.ejs')%>
